@@ -78,22 +78,20 @@ async function writeToFile(fileName, data) {
 async function getAndWrite () {
     await getInput();
     let result = generateMarkdown(responseArea);
-    console.log('generateMarkdown result\n', result);
 
-    console.log("about to write");
+    writeToFile("./READMEsample.md", result);
+   
+    // console.log('generateMarkdown result\n', result);
 
-    // ----  Change back to use writeToFile function
-    // ----------------------------------------------
-
-    fs.appendFile("./READMEsample.md", "After call generateMarkdown\n", (err) => {
-        if (err) {
-            console.error(err);
-        } else {
-            writeStatus = 'write success';
-            console.log('Write was a', writeStatus);
-        }
-    });
-    console.log("done writing");
+    // fs.appendFile("./READMEsample.md", "After call generateMarkdown\n", (err) => {
+    //     if (err) {
+    //         console.error(err);
+    //     } else {
+    //         writeStatus = 'write success';
+    //         console.log('Write was a', writeStatus);
+    //     }
+    // });
+    // console.log("done writing");
 }
 
 getAndWrite();
