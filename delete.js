@@ -1,27 +1,19 @@
-// var arr = [1, 2 , {a : 3}, 4];
+let projectTitle, author;
 
-// var [x1, x2 , {a : x3}, x4] = arr;
+// projectTitle = "Huckleberry Finn";
+// author = "Mark Twain"
 
-// console.log(x1, x2, x3, x4);
+let markdownField = 
+`# ${projectTitle}
 
+## Author: ${author}
 
-const licenseChoices = [
-    { license: 'The MIT License',
-        licenseBadge: `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
-    },
-    { license: 'ISC License (ISC)',
-        licenseBadge: `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`
-    },
-    { license: 'Apache 2.0 License',
-        licenseBadge: `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
-    },
-    {
-        license: 'Other',
-        licenseBadge: `Not Applicable`
-    }
-  ];
+## Badges
+![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
-for (const idx of licenseChoices) {
-    console.log(idx.license);
-    // licenseArray.push(license[0]);
-}
+## Table of Contents`;
+
+projectTitle = "Huckleberry Finn";
+author = "Mark Twain"
+
+console.log(markdownField);

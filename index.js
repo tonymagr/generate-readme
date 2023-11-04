@@ -2,9 +2,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const licenseChoicesTg = require('./utils/licenseChoices');
-// require to UD JS files ;
+const generateMarkdown = require('./utils/generateMarkdown');
 
-let writeAppendStatus;
+let writeStatus, appendStatus, responseArea;
 
 // TODO: Create an array of questions for user input
 const licenseChoices = licenseChoicesTg.licenseChoices;
@@ -19,6 +19,11 @@ const questions = [
         type: 'input',
         message: 'What is your project title?',
         name: 'projectTitle'
+    },
+    {
+        type: 'input',
+        message: 'Name of author:',
+        name: 'author'
     },
     {
         type: 'input',
@@ -49,36 +54,49 @@ async function getInput () {
     .prompt(questions)
     .then((response) =>
       response !== null
-        ? console.log('Success!', response.projectTitle, response.description, response.installation, response.usage, response.license)
+        // ? console.log('Success!', response.projectTitle, response.description, response.installation, response.usage, response.license)
+        ? responseArea = response
         : console.log('No response')
     );
 }
   
 // TODO: Create a function to write README file
 async function writeToFile(fileName, data) {
-    
+
     fs.writeFile(fileName, data, (err) => {
-        // err ? console.error(err) : writeAppendStatus = 'success'
+        // err ? console.error(err) : writeStatus = 'success'
+        // fs.appendFile('message.txt', 'Hello Node\n', (err) =>
         if (err) {
             console.error(err);
         } else {
-            writeAppendStatus = 'success';
-            console.log('Write was a', writeAppendStatus);
+            writeStatus = 'success';
+            console.log('Write was a', writeStatus);
         }
     });
 }
 
 async function getAndWrite () {
     await getInput();
-    await writeToFile('READMEsample.md','Test Line\n');
+    let result = generateMarkdown(responseArea);
+    console.log('generateMarkdown result\n', result);
+
+    console.log("about to write");
+
+    // ----  Change back to use writeToFile function
+    // ----------------------------------------------
+
+    fs.appendFile("./READMEsample.md", "After call generateMarkdown\n", (err) => {
+        if (err) {
+            console.error(err);
+        } else {
+            writeStatus = 'write success';
+            console.log('Write was a', writeStatus);
+        }
+    });
+    console.log("done writing");
 }
 
 getAndWrite();
-
-// fs.appendFile('log.txt', process.argv[2] + '\n', (err) =>
-// fs.appendFile('message.txt', 'Hello Node\n', (err) =>
-//     err ? console.error(err) : console.log('Success!')
-// );
 
 // // TODO: Create a function to initialize app
 // function init() {}
