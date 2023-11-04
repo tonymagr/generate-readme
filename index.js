@@ -93,6 +93,7 @@ async function getAndWrite () {
     });
     console.log("idx", idx);
     responseArea.licenseBadge = licenseChoices[idx].licenseBadge;
+    responseArea.copyRight = licenseChoices[idx].copyRight;
 
     let result = generateMarkdown(responseArea);
 

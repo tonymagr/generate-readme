@@ -37,9 +37,10 @@ function generateMarkdown (data) {
   ## Usage
 
   ## License
-  ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-  [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
-  
+  ${data.license}
+
+  ${data.copyRight}
+
   ## How to Contribute
 
   ## Tests
