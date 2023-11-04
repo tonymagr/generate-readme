@@ -1,9 +1,9 @@
-# qqq
+# This
 
-  ## Author: www
+  ## Author: Guy
 
   ## Badges
-  [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
   ## Table of Contents
 
@@ -23,6 +23,7 @@
 
   ## License
   ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+  [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
   
   ## How to Contribute
 

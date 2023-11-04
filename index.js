@@ -77,6 +77,23 @@ async function writeToFile(fileName, data) {
 
 async function getAndWrite () {
     await getInput();
+
+    console.log("responseArea", responseArea);
+    console.log("responseArea.license", responseArea.license);
+    console.log("licenseChoices", licenseChoices);
+
+    // let idx = licenseChoices.findIndex(srchIdx => srchIdx === responseArea.license);
+
+    let idx;
+    licenseChoices.some(function(entry, i) {
+        if (entry.license == responseArea.license) {
+            idx = i;
+            return true;
+        }
+    });
+    console.log("idx", idx);
+    responseArea.licenseBadge = licenseChoices[idx].licenseBadge;
+
     let result = generateMarkdown(responseArea);
 
     writeToFile("./READMEsample.md", result);

@@ -18,7 +18,7 @@ function generateMarkdown (data) {
   ## Author: ${data.author}
 
   ## Badges
-  [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+  ${data.licenseBadge}
 
   ## Table of Contents
 
@@ -38,6 +38,7 @@ function generateMarkdown (data) {
 
   ## License
   ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+  [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
   
   ## How to Contribute
 
