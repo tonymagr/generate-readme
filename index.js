@@ -163,13 +163,6 @@ function init() {
 
 async function getInput () {
 
-    // await inquirer
-    // .prompt(questions)
-    // .then((response) =>
-    //   response !== null
-    //     ? responseArea = response
-    //     : console.log('No response')
-    // );
     await inquirer
     .prompt(questions)
     .then((response) => {
@@ -196,23 +189,25 @@ async function writeToFile(fileName, data) {
 async function getAndWrite () {
     await getInput();
 
-    // Find index of chosen license to later access associated badge and copyright.
-    let idx;
-    licenseChoices.some(function(entry, i) {
-        if (entry.license == responseArea.license) {
-            idx = i;
-            return true;
-        }
-    });
-    responseArea.licenseBadge = licenseChoices[idx].licenseBadge;
-    responseArea.copyright = licenseChoices[idx].copyright;
+    if (!errorFlag) {
+        // Find index of chosen license to later access associated badge and copyright.
+        let idx;
+        licenseChoices.some(function(entry, i) {
+            if (entry.license == responseArea.license) {
+                idx = i;
+                return true;
+            }
+        });
+        responseArea.licenseBadge = licenseChoices[idx].licenseBadge;
+        responseArea.copyright = licenseChoices[idx].copyright;
 
-    // Create Markdown text using user input
-    let result = generateMarkdown(responseArea);
+        // Create Markdown text using user input
+        let result = generateMarkdown(responseArea);
 
-    // Generate README sample file
-    writeToFile(readMeSampleFile, result);
-
+        // Generate README sample file
+        writeToFile(readMeSampleFile, result);
+    }
+    
     // Issue final message that file has been created.
     if (!errorFlag) {
         console.log("\nYour sample README file has been created: READMEsample.md in result folder.\n");

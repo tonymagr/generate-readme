@@ -2,7 +2,7 @@
 // that will be the contents of the sample README file.
 
 // ----------------------------------
-// Created license badge and links without use of TODO functions below.
+// Created license badge and links WITHOUT the use of TODO functions below.
 // Passed all license data as part of input parameter. Source object is in licenseChoices.js
 // ----------------------------------
 
@@ -26,7 +26,7 @@ function generateMarkdown (data) {
   ## Author: ${data.author}
 
   ## Badges
-  ${data.licenseBadge}
+  ${data.licenseBadge} <br>
   (Badge links to website containing license information.)
 
   ## Table of Contents
