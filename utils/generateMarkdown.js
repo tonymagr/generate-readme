@@ -25,7 +25,7 @@ function generateMarkdown (data) {
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
-  - [How to Contribute](#contribution)
+  - [How%20to%20Contribute](#contribution)
   - [Tests](#tests)
   - [Questions](#questions)
 
@@ -50,7 +50,7 @@ function generateMarkdown (data) {
   ${data.testInstructions}
 
   ## Questions
-  [GitHub profile for ${data.gitHubUsername}: ](https://github.com/${data.gitHubUsername}) <br>
+  GitHub profile: [Profile for ${data.gitHubUsername}](https://github.com/${data.gitHubUsername}) \<br\>
   Please email me at ${data.emailAddress} with any additional questions.
   `;
    return markdownField;
