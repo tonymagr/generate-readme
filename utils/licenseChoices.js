@@ -4,7 +4,7 @@ const licenseChoices = [
     license: 'The MIT License',
     licenseBadge: `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`,
     copyright:
-    `Copyright (c) <year> <copyright holders>
+    `Copyright (c) (year) (copyright holders)
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@ const licenseChoices = [
     copyright:
     `ISC License
 
-    Copyright <YEAR> <OWNER>
+    Copyright (YEAR) (OWNER)
     
     Permission to use, copy, modify, and/or distribute this software for any purpose 
     with or without fee is hereby granted, provided that the above copyright notice 
@@ -65,7 +65,7 @@ const licenseChoices = [
     license: 'BSD 3-Clause License',
     licenseBadge: `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`,
     copyright:
-    `Copyright <year> <copyright holder>
+    `Copyright (year) (copyright holder)
 
     Redistribution and use in source and binary forms, with or without modification, 
     are permitted provided that the following conditions are met:
@@ -94,7 +94,7 @@ const licenseChoices = [
     license: 'BSD 2-Clause License',
     licenseBadge: `[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`,
     copyright:
-    `Copyright (c) <year>, <copyright holder>
+    `Copyright (c) (year), (copyright holder)
 
     Redistribution and use in source and binary forms, with or without modification, are 
     permitted provided that the following conditions are met:

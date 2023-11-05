@@ -18,7 +18,8 @@ function generateMarkdown (data) {
   ## Author: ${data.author}
 
   ## Badges
-  ${data.licenseBadge}
+  ${data.licenseBadge} <br> <br>
+  (Badge links to website containing license information.)
 
   ## Table of Contents
   - [Description](#description)
@@ -50,8 +51,7 @@ function generateMarkdown (data) {
   ${data.testInstructions}
 
   ## Questions
-  GitHub profile: [Profile for ${data.gitHubUsername}](https://github.com/${data.gitHubUsername})
-  <br>
+  GitHub profile: [Profile for ${data.gitHubUsername}](https://github.com/${data.gitHubUsername}) <br> <br>
   Please email me at ${data.emailAddress} with any additional questions.
   `;
    return markdownField;
