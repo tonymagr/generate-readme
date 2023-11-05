@@ -41,6 +41,26 @@ const questions = [
         name: 'usage'
     },
     {
+        type: 'input',
+        message: 'Provide contribution guidelines to others who would enhance your open source.',
+        name: 'contribution'
+    },
+    {
+        type: 'input',
+        message: 'Test instructions:',
+        name: 'testInstructions'
+    },
+    {
+        type: 'input',
+        message: 'GitHub username:',
+        name: 'gitHubUsername'
+    },
+    {
+        type: 'input',
+        message: 'Email address:',
+        name: 'emailAddress'
+    },
+    {
         type: 'list',
         message: 'Select node license:',
         name: 'license',
@@ -54,7 +74,6 @@ async function getInput () {
     .prompt(questions)
     .then((response) =>
       response !== null
-        // ? console.log('Success!', response.projectTitle, response.description, response.installation, response.usage, response.license)
         ? responseArea = response
         : console.log('No response')
     );
@@ -64,13 +83,8 @@ async function getInput () {
 async function writeToFile(fileName, data) {
 
     fs.writeFile(fileName, data, (err) => {
-        // err ? console.error(err) : writeStatus = 'success'
-        // fs.appendFile('message.txt', 'Hello Node\n', (err) =>
-        if (err) {
+        if (err) { 
             console.error(err);
-        } else {
-            writeStatus = 'success';
-            console.log('Write was a', writeStatus);
         }
     });
 }
@@ -78,12 +92,7 @@ async function writeToFile(fileName, data) {
 async function getAndWrite () {
     await getInput();
 
-    console.log("responseArea", responseArea);
-    console.log("responseArea.license", responseArea.license);
-    console.log("licenseChoices", licenseChoices);
-
-    // let idx = licenseChoices.findIndex(srchIdx => srchIdx === responseArea.license);
-
+    // Find index of chosen license to later access associated badge and copyright.
     let idx;
     licenseChoices.some(function(entry, i) {
         if (entry.license == responseArea.license) {
@@ -91,25 +100,14 @@ async function getAndWrite () {
             return true;
         }
     });
-    console.log("idx", idx);
     responseArea.licenseBadge = licenseChoices[idx].licenseBadge;
     responseArea.copyRight = licenseChoices[idx].copyRight;
+    console.log("responseArea", responseArea);
 
+    // Create Markdown text using user input
     let result = generateMarkdown(responseArea);
-
+    // Generate README sample file
     writeToFile("./READMEsample.md", result);
-   
-    // console.log('generateMarkdown result\n', result);
-
-    // fs.appendFile("./READMEsample.md", "After call generateMarkdown\n", (err) => {
-    //     if (err) {
-    //         console.error(err);
-    //     } else {
-    //         writeStatus = 'write success';
-    //         console.log('Write was a', writeStatus);
-    //     }
-    // });
-    // console.log("done writing");
 }
 
 getAndWrite();

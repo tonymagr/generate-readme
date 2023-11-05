@@ -21,20 +21,22 @@ function generateMarkdown (data) {
   ${data.licenseBadge}
 
   ## Table of Contents
-
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Credits](#credits)
   - [License](#license)
+  - [How to Contribute](#contribution)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
   ## Description
-
-  Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+  ${data.description}
 
   ## Installation
+  ${data.installation}
 
   ## Usage
+  ${data.usage}
 
   ## License
   ${data.license}
@@ -42,11 +44,14 @@ function generateMarkdown (data) {
   ${data.copyRight}
 
   ## How to Contribute
+  ${data.contribution}
 
   ## Tests
+  ${data.testInstructions}
 
   ## Questions
-
+  ![GitHub profile for ${data.gitHubUsername}: ](https://github.com/${data.gitHubUsername}) <br>
+  Please email me at ${data.emailAddress} with any additional questions.
   `;
    return markdownField;
 }
