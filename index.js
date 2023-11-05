@@ -1,82 +1,185 @@
+// INDEX.JS
+// --------
+
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const licenseChoicesTg = require('./utils/licenseChoices');
 const generateMarkdown = require('./utils/generateMarkdown');
+const readMeSampleFile = "./result/READMEsample.md";
 
-let writeStatus, appendStatus, responseArea;
-
-// TODO: Create an array of questions for user input
-const licenseChoices = licenseChoicesTg.licenseChoices;
-
+let writeStatus, appendStatus, responseArea, licenseChoices, questions;
 let licenseArray = [];
-for (const idx of licenseChoices) {
-    licenseArray.push(idx.license);
+let errorFlag = false;
+
+
+// Function Declarations
+// ---------------------
+
+function createInputs () {
+    
+    // Retrieve license names from full array of license data for pick list
+    licenseChoices = licenseChoicesTg.licenseChoices;
+    for (const idx of licenseChoices) {
+        licenseArray.push(idx.license);
+    }
+    // TODO: Create an array of questions for user input
+    questions = [
+        {
+            type: 'input',
+            message: 'What is your project title?',
+            name: 'projectTitle',
+            validate: projectTitle => {
+                if (projectTitle) {
+                return true;
+                } else {
+                console.log('Project title missing - Please provide.');
+                return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Name of author:',
+            name: 'author',
+            validate: author => {
+                if (author) {
+                return true;
+                } else {
+                console.log('Author name missing - Please provide.');
+                return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Describe your project.',
+            name: 'description',
+            validate: description => {
+                if (description) {
+                return true;
+                } else {
+                console.log('Description missing - Please provide.');
+                return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Provide installation instructions.',
+            name: 'installation',
+            validate: installation => {
+                if (installation) {
+                return true;
+                } else {
+                console.log('Installation instructions missing - Please provide.');
+                return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Provide usage instructions.',
+            name: 'usage',
+            validate: usage => {
+                if (usage) {
+                return true;
+                } else {
+                console.log('Usage information missing - Please provide.');
+                return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Provide contribution guidelines to others who would enhance your open source.',
+            name: 'contribution',
+            validate: contribution => {
+                if (contribution) {
+                return true;
+                } else {
+                console.log('Contribution guidelines missing - Please provide.');
+                return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Test instructions:',
+            name: 'testInstructions',
+            validate: testInstructions => {
+                if (testInstructions) {
+                return true;
+                } else {
+                console.log('Test instructions missing - Please provide.');
+                return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'GitHub username:',
+            name: 'gitHubUsername',
+            validate: gitHubUsername => {
+                if (gitHubUsername) {
+                return true;
+                } else {
+                console.log('GitHub username missing - Please provide.');
+                return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Email address:',
+            name: 'emailAddress',
+            validate: emailAddress => {
+                // Source https://www.tutorialspoint.com/how-to-validate-email-address-using-regexp-in-javascript
+                let regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+                if (regex.test(emailAddress)) {
+                    return true;
+                } else {
+                    console.log('\nInvalid email address format - Please enter as "name@provider.suffix".');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'list',
+            message: 'Select node license:',
+            name: 'license',
+            choices: licenseArray
+        },
+    ];
 }
 
-const questions = [
-    {
-        type: 'input',
-        message: 'What is your project title?',
-        name: 'projectTitle'
-    },
-    {
-        type: 'input',
-        message: 'Name of author:',
-        name: 'author'
-    },
-    {
-        type: 'input',
-        message: 'Describe your project.',
-        name: 'description'
-    },
-    {
-        type: 'input',
-        message: 'Provide installation instructions.',
-        name: 'installation'
-    },
-    {
-        type: 'input',
-        message: 'Provide usage instructions.',
-        name: 'usage'
-    },
-    {
-        type: 'input',
-        message: 'Provide contribution guidelines to others who would enhance your open source.',
-        name: 'contribution'
-    },
-    {
-        type: 'input',
-        message: 'Test instructions:',
-        name: 'testInstructions'
-    },
-    {
-        type: 'input',
-        message: 'GitHub username:',
-        name: 'gitHubUsername'
-    },
-    {
-        type: 'input',
-        message: 'Email address:',
-        name: 'emailAddress'
-    },
-    {
-        type: 'list',
-        message: 'Select node license:',
-        name: 'license',
-        choices: licenseArray
-    },
-];
+// TODO: Create a function to initialize app
+function init() {
+    console.log("\n                           GENERATE README.MD");
+    console.log("                           ------------------\n");
+    console.log("Please provide all required information to automatically generate a");
+    console.log("sample README.md file for your GitHub project or app.\n");
+}
 
 async function getInput () {
 
+    // await inquirer
+    // .prompt(questions)
+    // .then((response) =>
+    //   response !== null
+    //     ? responseArea = response
+    //     : console.log('No response')
+    // );
     await inquirer
     .prompt(questions)
-    .then((response) =>
-      response !== null
-        ? responseArea = response
-        : console.log('No response')
-    );
+    .then((response) => {
+        if (response !== null) {
+            responseArea = response;
+        } else {
+            console.log('No response');
+            errorFlag = true;
+        }
+    });
 }
   
 // TODO: Create a function to write README file
@@ -85,6 +188,7 @@ async function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) { 
             console.error(err);
+            errorFlag = true;
         }
     });
 }
@@ -102,18 +206,31 @@ async function getAndWrite () {
     });
     responseArea.licenseBadge = licenseChoices[idx].licenseBadge;
     responseArea.copyright = licenseChoices[idx].copyright;
-    console.log("responseArea", responseArea);
 
     // Create Markdown text using user input
     let result = generateMarkdown(responseArea);
+
     // Generate README sample file
-    writeToFile("./READMEsample.md", result);
+    writeToFile(readMeSampleFile, result);
+
+    // Issue final message that file has been created.
+    if (!errorFlag) {
+        console.log("\nYour sample README file has been created: READMEsample.md in result folder.\n");
+    } else {
+        console.log("\nYour sample README file could not be created due to logged error.\n");
+    }
+    console.log("Thank you for using Generate README.md application!\n");
 }
 
+
+//   Main
+// --------
+
+// Create array of input questions
+createInputs();
+
+// Initialize app - Greeting message
+init();
+
+// Receive input, transform into markup text, and write sample README file
 getAndWrite();
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
