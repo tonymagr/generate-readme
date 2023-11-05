@@ -3,7 +3,7 @@ const licenseChoices = [
   { 
     license: 'The MIT License',
     licenseBadge: `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`,
-    copyRight:
+    copyright:
     `Copyright (c) <year> <copyright holders>
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,7 +46,7 @@ const licenseChoices = [
   {
     license: 'Apache 2.0 License',
     licenseBadge: `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`,
-    copyRight:
+    copyright:
     `Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -64,7 +64,7 @@ const licenseChoices = [
   { 
     license: 'BSD 3-Clause License',
     licenseBadge: `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`,
-    copyRight:
+    copyright:
     `Copyright <year> <copyright holder>
 
     Redistribution and use in source and binary forms, with or without modification, 
@@ -93,7 +93,7 @@ const licenseChoices = [
   { 
     license: 'BSD 2-Clause License',
     licenseBadge: `[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`,
-    copyRight:
+    copyright:
     `Copyright (c) <year>, <copyright holder>
 
     Redistribution and use in source and binary forms, with or without modification, are 
@@ -118,9 +118,9 @@ const licenseChoices = [
   { 
     license: 'GNU GPL v3',
     licenseBadge: `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`,
-    copyRight:
+    copyright:
     `Copyright © 2007 Free Software Foundation, Inc. <https://fsf.org/>
-    
+
     Everyone is permitted to copy and distribute verbatim copies of this license document, 
     but changing it is not allowed.
     
@@ -171,7 +171,7 @@ const licenseChoices = [
   { 
     license: 'The Unlicense',
     licenseBadge: `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`,
-    copyRight:
+    copyright:
     `This is free and unencumbered software released into the public domain.
     Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, 
     either in source code form or as a compiled binary, for any purpose, commercial or 
@@ -193,7 +193,7 @@ const licenseChoices = [
   { 
     license: 'Other',
     licenseBadge: 'Please enter your own license',
-    copyRight: 'Please supply copyright information.'
+    copyright: 'Please supply copyright information.'
   }
 ];
 

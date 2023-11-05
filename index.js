@@ -101,7 +101,7 @@ async function getAndWrite () {
         }
     });
     responseArea.licenseBadge = licenseChoices[idx].licenseBadge;
-    responseArea.copyRight = licenseChoices[idx].copyRight;
+    responseArea.copyright = licenseChoices[idx].copyright;
     console.log("responseArea", responseArea);
 
     // Create Markdown text using user input

@@ -41,7 +41,7 @@ function generateMarkdown (data) {
   ## License
   ${data.license}
 
-  ${data.copyRight}
+  ${data.copyright}
 
   ## How to Contribute
   ${data.contribution}
@@ -50,7 +50,7 @@ function generateMarkdown (data) {
   ${data.testInstructions}
 
   ## Questions
-  ![GitHub profile for ${data.gitHubUsername}: ](https://github.com/${data.gitHubUsername}) <br>
+  [GitHub profile for ${data.gitHubUsername}: ](https://github.com/${data.gitHubUsername}) <br>
   Please email me at ${data.emailAddress} with any additional questions.
   `;
    return markdownField;
