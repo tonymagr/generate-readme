@@ -220,7 +220,13 @@ async function getAndWrite () {
     } else {
         console.log("\nYour sample README file could not be created due to logged error.");
     }
-    console.log("\nThank you for using Generate README.md application!\n");
+    if (!errorFlag) {
+        console.log("\n--------------");
+        console.log("End of README.md")
+        console.log("\n\nPlease note that you will have to fill in certain values in the License Copyright section.");
+        console.log("Using Apache 2.0 License as an example, you would update 'Copyright [yyyy] [name of copyright owner]'.\n");
+        console.log("\n\nThank you for using Generate README.md application!\n\n");
+    }
 }
 
 

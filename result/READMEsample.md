@@ -1,6 +1,6 @@
-# r
+# Administration Menu
 
-  ## Author: t
+  ## Author: Mr. Drupal Representative
 
   ## Badges
   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) <br>
@@ -16,13 +16,13 @@
   - [Questions](#questions)
 
   ## Description
-  r
+  The Administration Menu module displays the entire administrative menu tree (and most local tasks) in a drop-down menu, providing administrators one- or two-click access to most pages. For a full description of the module, visit the [project page](https://www.drupal.org/project/admin_menu). Submit bug reports and feature suggestions, or track changes in the [issue queue](https://www.drupal.org/project/issues/admin_menu). 
 
   ## Installation
-  t
+  Install as you would normally install a contributed Drupal module. For further information, see [Installing Drupal Modules](https://www.drupal.org/docs/extending-drupal/installing-drupal-modules).
 
   ## Usage
-  r
+  Go to Administration » Configuration » Content authoring » Text formats and editors; 2. Edit a text format, for example "Basic HTML"; 3. Enable a Glossify filter and configure it under "Filter settings"
 
   ## License
   Apache 2.0 License
@@ -42,10 +42,10 @@
     limitations under the License.
 
   ## How to Contribute
-  t
+  If you have any questions, please see my contact information in Questions section. Please access my GitHub profile page there, and find generate-readme repo within. git clone to your local machine, checkout your branch, and commence enhancements and tuning. Email me, and upon review of your changes I will add your username to collaborators. Then you may commit and push your branch to the repo. I will check and either merge or not. Either way, I will notify you...  (Thank you)
 
   ## Tests
-  r
+  **Q**: I want to prevent robots from indexing my custom error pages by setting the robots meta tag in the HTML head to "noindex". **A:** There is no need to. **Customerror** returns the correct HTTP status codes (403 and 404). This will prevent robots from indexing the error pages. **Q**: I want to customize the custom error template output. **A:** In your theme template folder for your site, copy the template provided by the **Customerror** module (i.e. `templates/customerror.html.twig`) and then make your modifications there.
 
   ## Questions
   GitHub profile: [Profile for tonymagr](https://github.com/tonymagr) <br> <br>
