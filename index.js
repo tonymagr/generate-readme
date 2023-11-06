@@ -8,7 +8,7 @@ const licenseChoicesTg = require('./utils/licenseChoices');
 const generateMarkdown = require('./utils/generateMarkdown');
 const readMeSampleFile = "./result/READMEsample.md";
 
-let writeStatus, appendStatus, responseArea, licenseChoices, questions;
+let responseArea, licenseChoices, questions, resultDisplay;
 let licenseArray = [];
 let errorFlag = false;
 
@@ -203,6 +203,7 @@ async function getAndWrite () {
 
         // Create Markdown text using user input
         let result = generateMarkdown(responseArea);
+        resultDisplay = result;
 
         // Generate README sample file
         writeToFile(readMeSampleFile, result);
@@ -210,11 +211,16 @@ async function getAndWrite () {
     
     // Issue final message that file has been created.
     if (!errorFlag) {
-        console.log("\nYour sample README file has been created: READMEsample.md in result folder.\n");
+        console.log("\nYour sample README file has been created: READMEsample.md in result folder.");
+        console.log("Please view raw contents below.");
+        console.log("(Now that application execution is finished, will later share the GitHub rendered version.)\n");
+        console.log("Raw README.md");
+        console.log("-------------");
+        console.log(resultDisplay);
     } else {
-        console.log("\nYour sample README file could not be created due to logged error.\n");
+        console.log("\nYour sample README file could not be created due to logged error.");
     }
-    console.log("Thank you for using Generate README.md application!\n");
+    console.log("\nThank you for using Generate README.md application!\n");
 }
 
 
