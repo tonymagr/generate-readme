@@ -155,6 +155,9 @@ function createInputs () {
 
 // TODO: Create a function to initialize app
 function init() {
+    // Clear the console.
+    console.clear();
+    // Introduction to application
     console.log("\n                           GENERATE README.MD");
     console.log("                           ------------------\n");
     console.log("Please provide all required information to automatically generate a");

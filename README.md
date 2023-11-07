@@ -1,14 +1,12 @@
-# <Your-Project-Title>
+# Generate README
 
 ## Author
-Tony Magrady - Berkeley Full-Stack Web Development Bootcamp student
+Tony Magrady - Berkeley Full-Stack Web Development Bootcamp student, Fall-Winter Session 2023-2024
 
 ## Badges
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of Contents
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
 
 - [Description](#description)
 - [Installation](#installation)
@@ -18,39 +16,61 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+Automatically generates a professional README.md file from a developer working on an application project from command line inputs (using Inquirer packageLinks).
+Accept different inputs to build the different README sections, including description, installation instructions, usage information, contribution guidelines, test instructions, license type, GitHub username, and email address.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+(Technical notes:
+Created a separate file of license choices, badge links, and copyright data per license type, to keep the program logic clean (not embedding in program logic Javascript file).
+Determined need to gitignore a couple of files that facilitated development but are not intended to include in the submitted assignment, including node_modules folder which is too large for open-source, production-ready repo's.)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Email tonymagrady@gmail.com requesting access to the repo with your intent to leverage code.
+You will be invited to this repo: [generate-readme](https://github.com/tonymagr/generate-readme)
+Git clone to your local machine, checkout your branch, and commence creation of your version.
+If you desire to update the master copy, please use above email, and it may be that your enhancements
+can be merged in.
+In order to prepare your local repo:
+- npm init -y  
+- npm i(nstall)  (which will install all packages and specifically inquirer and fs.)
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+As the welcome screen GENERATE README.MD mentions -
+Provide all required information to automatically generate a sample README.md file for your GitHub project.
+You will be presented with several Inquirer package input field requests, as shown in this demostration video:
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+[Demo Link](https://drive.google.com/file/d/1UdiFv4VxgxyyMBTEzZqN7aLGUjezejlC/view?usp=drive_link/)
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
-    
+Sample README.md result:
+[README sample result](./img/README-result.jpg)
+
+
+## Credits
+
+Source for sample README input data was Dupral Association of philonthropic support:
+(https://www.drupal.org/docs/develop/managing-a-drupalorg-theme-module-or-distribution-project/documenting-your-project/readmemd-template/)
+
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+The MIT License
 
-## How to Contribute
+Copyright (c) (2023) (Tony Magrady)
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
-
-## Questions
-
-For GitHub username and link to GitHub profile. Also for email address and instructions on how to reach creator.
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
